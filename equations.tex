@@ -1,0 +1,16 @@
+
+%% [Sun 03Apr2016]. Strikeout in math mode. 
+   \documentclass{article}
+   \usepackage{calc}
+   \newsavebox\CBox
+   \newcommand\hcancel[2][0.5pt]{%
+     \ifmmode\sbox\CBox{$#2$}\else\sbox\CBox{#2}\fi%
+     \makebox[0pt][l]{\usebox\CBox}%  
+     \rule[0.5\ht\CBox-#1/2]{\wd\CBox}{#1}}
+
+   \begin{document}
+
+     \hcancel{Test}
+     \hcancel[2pt]{Test}
+
+   \end{document}
